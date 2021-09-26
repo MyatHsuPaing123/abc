@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box">
+        <div>
+            <input type="text" id="TextInput">
+            <button id="addBtn" onclick="Add()">Add</button>
+            <ul id="List">
+               <!-- <li>
+                   <button>Delete</button>
+                   <button>Edit</button>
+                   <span>Apple</span>
+               </li> -->
+            </ul>
+        </div>
+    </div>
+    
+</body>
+<script>
+    let x=document.getElementById("TextInput")
+    let y=document.getElementById("List")
+    let minMaxLength=3;
+    let i=1
+    function Add (){
+        let input=TextFilter(x.value);
+           if(input){
+            y.innerHTML+=`<li id="list${i}">
+                   <button id=delBtn onclick="deleteList(${i})">Delete</button>
+                   <button id=editBtn>Edit</button>
+                   <span>Apple</span>
+                   
+               </li>`;
+               i++;
+            x.value="";
+           }
+    }
+    function TextFilter(x){
+        if(x){
+            if(x.length>=minMaxLength){
+                return x;
+            }else{
+                alert("MinTextLength is 3.")
+                return false ;
+            }
+        }
+    }
+    function deleteList(listId){
+        let deleteconfirm=confirm("are u sure to delete?")
+        if(deleteconfirm){
+            let current=document.getElementById(`list${listId}`)
+        y.removeChild(current)
+        
+        }
+       
+
+    }
+    funct
+
+</script>
+</html>
